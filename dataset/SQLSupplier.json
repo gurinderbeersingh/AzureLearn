@@ -1,0 +1,22 @@
+{
+	"name": "SQLSupplier",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table": {
+				"type": "string",
+				"defaultValue": "supplier"
+			},
+			"schema": {
+				"type": "string",
+				"defaultValue": "spl"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
