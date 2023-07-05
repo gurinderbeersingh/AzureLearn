@@ -190,7 +190,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy UserDetail",
+						"name": "Copy UserDetails",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
