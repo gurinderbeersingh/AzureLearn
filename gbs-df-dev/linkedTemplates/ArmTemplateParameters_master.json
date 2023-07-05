@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "gbs-df-dev"
+		},
+		"MyKeyVault_properties_typeProperties_baseUrl": {
+			"value": "https://gbs-key-valut-dev.vault.azure.net/"
+		},
+		"gbsstorage_properties_typeProperties_connectionString_secretName": {
+			"value": "gbsintstoragekey"
+		},
+		"sqldb_properties_typeProperties_connectionString_secretName": {
+			"value": "gbsdbkey"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
