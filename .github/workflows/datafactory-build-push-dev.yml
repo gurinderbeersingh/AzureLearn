@@ -25,12 +25,12 @@ jobs:
         
 # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
     - name: Validate
-      run: npm run build validate ${{github.workspace}}/ /subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/azurelearn/providers/Microsoft.DataFactory/factories/gbs-df-dev # (2) The validate command needs the root folder location of your repository where all the objects are stored. And the 2nd parameter is the resourceID of the ADF instance 
+      run: npm run build validate ${{github.workspace}}/ /subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.DataFactory/factories/gbs-df-dev # (2) The validate command needs the root folder location of your repository where all the objects are stored. And the 2nd parameter is the resourceID of the ADF instance 
       working-directory: ${{github.workspace}}/build
  
 
     - name: Validate and Generate ARM template
-      run: npm run build export ${{github.workspace}}/ /subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/azurelearn/providers/Microsoft.DataFactory/factories/gbs-df-dev "ExportedArmTemplate"  # (3) The build command, as validate, needs the root folder location of your repository where all the objects are stored. And the 2nd parameter is the resourceID of the ADF instance. The 3rd parameter is the exported ARM template artifact name 
+      run: npm run build export ${{github.workspace}}/ /subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.DataFactory/factories/gbs-df-dev "ExportedArmTemplate"  # (3) The build command, as validate, needs the root folder location of your repository where all the objects are stored. And the 2nd parameter is the resourceID of the ADF instance. The 3rd parameter is the exported ARM template artifact name 
       working-directory: ${{github.workspace}}/build
  
 # In order to leverage the artifact in another job, we need to upload it with the upload action 
@@ -49,7 +49,7 @@ jobs:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v3.0.2
         with:
-          name: ExportedArmTemplate # (5) Artifact name 
+          name: ExportedArmTemplate
 
       - name: Login via Az module
         uses: azure/login@v1
@@ -62,7 +62,7 @@ jobs:
       - name: data-factory-deploy
         uses: Azure/data-factory-deploy-action@v1.2.0
         with:
-          resourceGroupName: AzureLearn # (6) your target ADF resource group name
-          dataFactoryName: gbs-df-dev # (7) your target ADF name
-          armTemplateFile: ARMTemplateForFactory.json # (8) ARM template file name ARMTemplateForFactory.json
-          armTemplateParametersFile: ARMTemplateParametersForFactory.json # (9) ARM template parameters file name ARMTemplateParametersForFactory.json
+          resourceGroupName: AzureLearn
+          dataFactoryName: gbs-df-dev
+          armTemplateFile: ARMTemplateForFactory.json
+          armTemplateParametersFile: ARMTemplateParametersForFactory.json
