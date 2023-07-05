@@ -62,7 +62,7 @@ jobs:
       - name: data-factory-deploy
         uses: Azure/data-factory-deploy-action@v1.2.0
         with:
-          resourceGroupName: AzureLearn
+          resourceGroupName: azurelearn
           dataFactoryName: gbs-df-dev
           armTemplateFile: ARMTemplateForFactory.json
           armTemplateParametersFile: ARMTemplateParametersForFactory.json
