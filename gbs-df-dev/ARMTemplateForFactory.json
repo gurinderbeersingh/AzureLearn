@@ -18,6 +18,14 @@
 		"sqldb_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "gbsdbkey"
+		},
+		"UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"UserDetailsStorageTrigger_Dev_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.Storage/storageAccounts/gbsintdev"
 		}
 	},
 	"variables": {
@@ -268,6 +276,39 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/sqldb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/UserDetailsStorageTrigger_Dev')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "user_details",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"Filename": "[parameters('UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/suppliers/blobs/user_details/",
+					"blobPathEndsWith": ".xlsx",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('UserDetailsStorageTrigger_Dev_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/user_details')]"
 			]
 		}
 	]

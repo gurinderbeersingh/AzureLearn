@@ -19,6 +19,14 @@
 			"type": "string",
 			"defaultValue": "gbsdbkey"
 		},
+		"UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"UserDetailsStorageTrigger_Dev_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.Storage/storageAccounts/gbsintdev"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -54,6 +62,12 @@
 					},
 					"sqldb_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('sqldb_properties_typeProperties_connectionString_secretName')]"
+					},
+					"UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename": {
+						"value": "[parameters('UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename')]"
+					},
+					"UserDetailsStorageTrigger_Dev_properties_typeProperties_scope": {
+						"value": "[parameters('UserDetailsStorageTrigger_Dev_properties_typeProperties_scope')]"
 					}
 				}
 			},

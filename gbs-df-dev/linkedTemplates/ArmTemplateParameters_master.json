@@ -14,6 +14,12 @@
 		"sqldb_properties_typeProperties_connectionString_secretName": {
 			"value": "gbsdbkey"
 		},
+		"UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename": {
+			"value": "@triggerBody().fileName"
+		},
+		"UserDetailsStorageTrigger_Dev_properties_typeProperties_scope": {
+			"value": "/subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.Storage/storageAccounts/gbsintdev"
+		},
 		"containerUri": {
 			"value": ""
 		},
