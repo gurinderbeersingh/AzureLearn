@@ -1,0 +1,48 @@
+{
+	"name": "ExcelUserDetail",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "gbsstorage",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Filename": {
+				"type": "string",
+				"defaultValue": "user_details.xlsx"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().Filename",
+					"type": "Expression"
+				},
+				"folderPath": "user_details",
+				"container": "suppliers"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "uid",
+				"type": "String"
+			},
+			{
+				"name": "details",
+				"type": "String"
+			}
+		]
+	}
+}
