@@ -66,3 +66,4 @@ jobs:
           dataFactoryName: gbs-df-dev
           armTemplateFile: ARMTemplateForFactory.json
           armTemplateParametersFile: ARMTemplateParametersForFactory.json
+          additionalParameters:'UserDetailsStorageTrigger_Dev_properties_typeProperties_blobPathBeginsWith=/suppliers-stage/blobs/user_details/'
