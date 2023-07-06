@@ -5,14 +5,14 @@
 		"factoryName": {
 			"value": "gbs-df-dev"
 		},
+		"sqldb_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=gbsintserver.database.windows.net;Initial Catalog=gbsintdev;User ID=procServiceDev"
+		},
 		"MyKeyVault_properties_typeProperties_baseUrl": {
 			"value": "https://gbs-key-valut-dev.vault.azure.net/"
 		},
 		"gbsstorage_properties_typeProperties_connectionString_secretName": {
 			"value": "gbsintstoragekey"
-		},
-		"sqldb_properties_typeProperties_connectionString_secretName": {
-			"value": "gbsdbkey"
 		},
 		"UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename": {
 			"value": "@triggerBody().fileName"

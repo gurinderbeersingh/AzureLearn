@@ -7,6 +7,11 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "gbs-df-dev"
 		},
+		"sqldb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqldb'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=gbsintserver.database.windows.net;Initial Catalog=gbsintdev;User ID=procServiceDev"
+		},
 		"MyKeyVault_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://gbs-key-valut-dev.vault.azure.net/"
@@ -14,10 +19,6 @@
 		"gbsstorage_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "gbsintstoragekey"
-		},
-		"sqldb_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "gbsdbkey"
 		},
 		"UserDetailsStorageTrigger_Dev_properties_user_details_parameters_Filename": {
 			"type": "string",
@@ -79,13 +80,14 @@
 				"annotations": [],
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
-					"connectionString": {
+					"connectionString": "[parameters('sqldb_connectionString')]",
+					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
 							"referenceName": "MyKeyVault",
 							"type": "LinkedServiceReference"
 						},
-						"secretName": "[parameters('sqldb_properties_typeProperties_connectionString_secretName')]"
+						"secretName": "gbsdbpwd"
 					}
 				}
 			},
