@@ -1,0 +1,28 @@
+{
+	"name": "UserDetailsStorageTrigger_Dev",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "user_details",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Filename": "@triggerBody().fileName"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/suppliers/blobs/user_details/",
+			"blobPathEndsWith": ".xlsx",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.Storage/storageAccounts/gbsintdev",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

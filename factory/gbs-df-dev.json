@@ -1,0 +1,9 @@
+{
+	"name": "gbs-df-dev",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a907e97b-44e6-4508-b785-0ff671c0b0ef",
+		"tenantId": "ecfe4f79-d0fd-47bc-a56a-ee9fd6d440d6"
+	}
+}
