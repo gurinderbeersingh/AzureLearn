@@ -66,4 +66,3 @@ jobs:
           dataFactoryName: gbs-df-dev
           armTemplateFile: ARMTemplateForFactory.json
           armTemplateParametersFile: ARMTemplateParametersForFactory.json
-          additionalParameters: 'MyKeyVault_properties_typeProperties_baseUrl=https://gbs-key-vault-stage.vault.azure.net/  UserDetailsStorageTrigger_Dev_properties_typeProperties_scope=/subscriptions/10b43936-d253-4e38-85cc-909155bf077f/resourceGroups/AzureLearn/providers/Microsoft.Storage/storageAccounts/gbsintstage'
